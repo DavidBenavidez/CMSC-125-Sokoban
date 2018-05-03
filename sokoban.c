@@ -93,8 +93,8 @@ int main(){
             while(move != '3'){
                 printBoard();
                 printf("Enter Move:");
+                scanf("%s", &move);
                 // getchar();
-                scanf("%c", &move);
                 move = tolower(move);
                 switch(move){
                     case 'w':
