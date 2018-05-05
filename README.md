@@ -3,7 +3,7 @@
   <img src="./assets/logo.png" alt="icon" width="450px" />
   <br/>
   <br/>
-  Tic-Tac-Toe
+  ICS-OS Sokoban
   <br/>
   <img src="https://img.shields.io/badge/status-development-yellow.svg" />
   <img src="https://img.shields.io/badge/gcc-v5.4.0-green.svg" />
