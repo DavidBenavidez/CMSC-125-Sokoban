@@ -1,23 +1,21 @@
 #include "../../sdk/dexsdk.h"
 #include "../../sdk/time.h"
 
-#define YELLOW 54
-#define PALE_YELLOW 62
-#define ROYAL_BLUE 1
-#define DARK_BLUE 8
 #define GRAY 56
-#define DARK_GREEN_BLUE 24
-#define DARK_GRAY 19
-#define ORANGE 52
-#define PINK 53
-#define LIGHT_BROWN 14
+#define DARK_GRAY 24
 #define BROWN 20
-#define LIGHT_YELLOW 55
 #define WHITE 63
-#define YELLOW 54
+#define YELLOW2 54
 #define MAROON 32
-#define LIGHT_GREEN 50
-#define GREEN 58
+
+#define LIGHT_GREEN 58
+#define GREEN 2
+#define DARK_GREEN 16
+#define DARK_YELLOW 6
+#define YELLOW 62
+#define PEACH 14
+#define DARK_PEACH 42
+#define PANTS 48
 
 #define BLACK 0
 #define start '1'
@@ -82,19 +80,18 @@ void print_floor(int x, int y){
 		}
 	}
 	// print deco
-	write_pixel(x + 2, y + 1, WHITE);
-	write_pixel(x + 2, y + 2, WHITE);
-	write_pixel(x + 7, y + 5, WHITE);
-	write_pixel(x + 3, y + 6, WHITE);
-	write_pixel(x + 8, y + 7, WHITE);
-	write_pixel(x + 12, y + 7, WHITE);
-	write_pixel(x + 6, y + 7, WHITE);
-	write_pixel(x + 2, y + 9, WHITE);
-	write_pixel(x + 11, y + 10, WHITE);
-	write_pixel(x + 16, y + 10, WHITE);
-	write_pixel(x + 9, y + 13, WHITE);
-	write_pixel(x + 4, y + 15, WHITE);
-	write_pixel(x + 10, y + 15, WHITE);
+	write_pixel(x + 2, y + 2, BLACK);
+	write_pixel(x + 7, y + 5, BLACK);
+	write_pixel(x + 3, y + 6, BLACK);
+	write_pixel(x + 8, y + 7, BLACK);
+	write_pixel(x + 12, y + 7, BLACK);
+	write_pixel(x + 6, y + 7, BLACK);
+	write_pixel(x + 2, y + 9, BLACK);
+	write_pixel(x + 11, y + 10, BLACK);
+	write_pixel(x + 16, y + 10, BLACK);
+	write_pixel(x + 9, y + 13, BLACK);
+	write_pixel(x + 4, y + 15, BLACK);
+	write_pixel(x + 10, y + 15, BLACK);
 }
 
 void print_box(int x, int y){
@@ -130,47 +127,151 @@ void print_box_stored(int x, int y){
 void print_character(int x, int y){
     for(l = y; l < y + 17; l++){
         for(i = 0; i < 17; i++){
-            write_pixel(x+i, l, YELLOW);      
+            write_pixel(x+i, l, GRAY);      
         }
     }
-    // eyes
-    write_pixel(x + 4, y + 4, BLACK);
-    write_pixel(x + 4, y + 5, BLACK);
-    write_pixel(x + 4, y + 6, BLACK);
-    write_pixel(x + 5, y + 4, BLACK);
-    write_pixel(x + 5, y + 5, BLACK);
-    write_pixel(x + 5, y + 6, BLACK);
-    write_pixel(x + 6, y + 4, BLACK);
-    write_pixel(x + 6, y + 5, BLACK);
-    write_pixel(x + 6, y + 6, BLACK);
-    write_pixel(x + 4, y + 10, BLACK);
-    write_pixel(x + 4, y + 11, BLACK);
-    write_pixel(x + 4, y + 12, BLACK);
-    write_pixel(x + 5, y + 10, BLACK);
-    write_pixel(x + 5, y + 11, BLACK);
-    write_pixel(x + 5, y + 12, BLACK);
-    write_pixel(x + 6, y + 10, BLACK);
-    write_pixel(x + 6, y + 11, BLACK);
-    write_pixel(x + 6, y + 12, BLACK);
-    // nose
-    write_pixel(x + 10, y + 8, BLACK);
-    write_pixel(x + 11, y + 8, BLACK);
-    write_pixel(x + 11, y + 7, BLACK); 
-    // SMILE
-    write_pixel(x + 12, y + 2, BLACK);
-    write_pixel(x + 13, y + 3, BLACK);
-    write_pixel(x + 14, y + 4, BLACK);
-    write_pixel(x + 15, y + 5, BLACK);
-    write_pixel(x + 16, y + 6, BLACK);
-    write_pixel(x + 16, y + 7, BLACK);
-    write_pixel(x + 16, y + 8, BLACK);
-    write_pixel(x + 16, y + 9, BLACK);
-    write_pixel(x + 16, y + 10, BLACK);
-    write_pixel(x + 12, y + 14, BLACK);
-    write_pixel(x + 13, y + 13, BLACK);
-    write_pixel(x + 14, y + 12, BLACK);
-    write_pixel(x + 15, y + 11, BLACK);
 
+	// floor deco para cool
+	write_pixel(x + 2, y + 2, BLACK);
+	write_pixel(x + 7, y + 5, BLACK);
+	write_pixel(x + 3, y + 6, BLACK);
+	write_pixel(x + 8, y + 7, BLACK);
+	write_pixel(x + 12, y + 7, BLACK);
+	write_pixel(x + 6, y + 7, BLACK);
+	write_pixel(x + 2, y + 9, BLACK);
+	write_pixel(x + 11, y + 10, BLACK);
+	write_pixel(x + 16, y + 10, BLACK);
+	write_pixel(x + 9, y + 13, BLACK);
+	write_pixel(x + 4, y + 15, BLACK);
+	write_pixel(x + 10, y + 15, BLACK);
+
+    // hoooooman
+    write_pixel(x + 4, y + 2, LIGHT_GREEN);
+	write_pixel(x + 5, y + 2, GREEN);
+	write_pixel(x + 6, y + 2, GREEN);
+	write_pixel(x + 7, y + 2, GREEN);
+	write_pixel(x + 8, y + 2, DARK_GREEN);
+
+	write_pixel(x + 3, y + 3, LIGHT_GREEN);
+	write_pixel(x + 4, y + 3, GREEN);
+	write_pixel(x + 5, y + 3, GREEN);
+	write_pixel(x + 6, y + 3, DARK_GREEN);
+	write_pixel(x + 7, y + 3, DARK_GREEN);
+	write_pixel(x + 8, y + 3, GREEN);
+	write_pixel(x + 9, y + 3, DARK_GREEN);
+
+	write_pixel(x + 2, y + 4, LIGHT_GREEN);
+	write_pixel(x + 3, y + 4, GREEN);
+	write_pixel(x + 4, y + 4, DARK_GREEN);
+	write_pixel(x + 5, y + 4, DARK_GREEN);
+	write_pixel(x + 6, y + 4, DARK_YELLOW);
+	write_pixel(x + 7, y + 4, DARK_YELLOW);
+	write_pixel(x + 8, y + 4, DARK_GREEN);
+	write_pixel(x + 9, y + 4, GREEN);
+	write_pixel(x + 10, y + 4, DARK_GREEN);
+
+	write_pixel(x + 2, y + 5, GREEN);
+	write_pixel(x + 3, y + 5, DARK_GREEN);
+	write_pixel(x + 4, y + 5, PEACH);
+	write_pixel(x + 5, y + 5, PEACH);
+	write_pixel(x + 6, y + 5, YELLOW);
+	write_pixel(x + 7, y + 5, DARK_YELLOW);
+	write_pixel(x + 8, y + 5, DARK_YELLOW);
+	write_pixel(x + 9, y + 5, DARK_GREEN);
+	write_pixel(x + 10, y + 5, GREEN);
+
+	write_pixel(x + 2, y + 6, DARK_GREEN);
+	write_pixel(x + 3, y + 6, PEACH);
+	write_pixel(x + 4, y + 6, BLACK);
+	write_pixel(x + 5, y + 6, PEACH);
+	write_pixel(x + 6, y + 6, PEACH);
+	write_pixel(x + 7, y + 6, PEACH);
+	write_pixel(x + 8, y + 6, BLACK);
+	write_pixel(x + 9, y + 6, DARK_YELLOW);
+	write_pixel(x + 10, y + 6, DARK_GREEN);
+
+	write_pixel(x + 2, y + 7, DARK_GREEN);
+	write_pixel(x + 3, y + 7, PEACH);
+	write_pixel(x + 4, y + 7, BLACK);
+	write_pixel(x + 5, y + 7, PEACH);
+	write_pixel(x + 6, y + 7, PEACH);
+	write_pixel(x + 7, y + 7, PEACH);
+	write_pixel(x + 8, y + 7, BLACK);
+	write_pixel(x + 9, y + 7, DARK_PEACH);
+	write_pixel(x + 10, y + 7, DARK_GREEN);    
+
+	write_pixel(x + 2, y + 8, DARK_GREEN);
+	write_pixel(x + 3, y + 8, PEACH);
+	write_pixel(x + 4, y + 8, PEACH);
+	write_pixel(x + 5, y + 8, PEACH);
+	write_pixel(x + 6, y + 8, PEACH);
+	write_pixel(x + 7, y + 8, PEACH);
+	write_pixel(x + 8, y + 8, PEACH);
+	write_pixel(x + 9, y + 8, DARK_PEACH);
+	write_pixel(x + 10, y + 8, DARK_GREEN);
+
+	write_pixel(x + 3, y + 9, GREEN);
+	write_pixel(x + 4, y + 9, PEACH);
+	write_pixel(x + 5, y + 9, PEACH);
+	write_pixel(x + 6, y + 9, PEACH);
+	write_pixel(x + 7, y + 9, PEACH);
+	write_pixel(x + 8, y + 9, DARK_PEACH);
+	write_pixel(x + 9, y + 9, GREEN);    
+
+	write_pixel(x + 2, y + 10, GREEN);
+	write_pixel(x + 3, y + 10, GREEN);
+	write_pixel(x + 4, y + 10, GREEN);
+	write_pixel(x + 5, y + 10, GREEN);
+	write_pixel(x + 6, y + 10, DARK_GREEN);
+	write_pixel(x + 7, y + 10, GREEN);
+	write_pixel(x + 8, y + 10, GREEN);
+	write_pixel(x + 9, y + 10, GREEN);
+	write_pixel(x + 10, y + 10, DARK_GREEN);
+
+	write_pixel(x + 2, y + 11, GREEN);
+	write_pixel(x + 3, y + 11, GREEN);
+	write_pixel(x + 4, y + 11, DARK_GREEN);
+	write_pixel(x + 5, y + 11, GREEN);
+	write_pixel(x + 6, y + 11, DARK_GREEN);
+	write_pixel(x + 7, y + 11, GREEN);
+	write_pixel(x + 8, y + 11, GREEN);
+	write_pixel(x + 9, y + 11, GREEN);
+	write_pixel(x + 10, y + 11, GREEN);
+
+	write_pixel(x + 2, y + 12, DARK_GREEN);
+	write_pixel(x + 3, y + 12, GREEN);
+	write_pixel(x + 4, y + 12, GREEN);
+	write_pixel(x + 5, y + 12, GREEN);
+	write_pixel(x + 6, y + 12, DARK_GREEN);
+	write_pixel(x + 7, y + 12, GREEN);
+	write_pixel(x + 8, y + 12, GREEN);
+	write_pixel(x + 9, y + 12, GREEN);
+	write_pixel(x + 10, y + 12, DARK_GREEN);
+
+	write_pixel(x + 2, y + 13, PEACH);
+	write_pixel(x + 3, y + 13, DARK_GREEN);
+	write_pixel(x + 4, y + 13, GREEN);
+	write_pixel(x + 5, y + 13, GREEN);
+	write_pixel(x + 6, y + 13, DARK_GREEN);
+	write_pixel(x + 7, y + 13, GREEN);
+	write_pixel(x + 8, y + 13, GREEN);
+	write_pixel(x + 9, y + 13, DARK_GREEN);
+	write_pixel(x + 10, y + 13, PEACH);
+
+	write_pixel(x + 3, y + 14, DARK_GRAY);
+	write_pixel(x + 4, y + 14, PANTS);
+	write_pixel(x + 5, y + 14, PANTS);
+	write_pixel(x + 6, y + 14, DARK_GRAY);
+	write_pixel(x + 7, y + 14, PANTS);
+	write_pixel(x + 8, y + 14, PANTS);
+	write_pixel(x + 9, y + 14, DARK_GRAY);
+
+	write_pixel(x + 3, y + 15, PANTS);
+	write_pixel(x + 4, y + 15, PANTS);
+	write_pixel(x + 5, y + 15, DARK_GRAY);
+	write_pixel(x + 7, y + 15, PANTS);
+	write_pixel(x + 8, y + 15, PANTS);
+	write_pixel(x + 9, y + 15, DARK_GRAY);
 }
 
 void print_storage(int x, int y){
@@ -184,24 +285,24 @@ void print_storage(int x, int y){
 	for(i = 0; i < 17; i++) write_pixel(x,y + i,RED); // left
 	for(i = 0; i <= 17; i++) write_pixel(x + 16,y + i,RED); // right
 	// print deco
-	write_pixel(x + 4, y + 4, YELLOW);
-    write_pixel(x + 4, y + 5, YELLOW);
-    write_pixel(x + 4, y + 6, YELLOW);
-    write_pixel(x + 5, y + 4, YELLOW);
-    write_pixel(x + 5, y + 5, YELLOW);
-    write_pixel(x + 5, y + 6, YELLOW);
-    write_pixel(x + 6, y + 4, YELLOW);
-    write_pixel(x + 6, y + 5, YELLOW);
-    write_pixel(x + 6, y + 6, YELLOW);
-    write_pixel(x + 4, y + 10, YELLOW);
-    write_pixel(x + 4, y + 11, YELLOW);
-    write_pixel(x + 4, y + 12, YELLOW);
-    write_pixel(x + 5, y + 10, YELLOW);
-    write_pixel(x + 5, y + 11, YELLOW);
-    write_pixel(x + 5, y + 12, YELLOW);
-    write_pixel(x + 6, y + 10, YELLOW);
-    write_pixel(x + 6, y + 11, YELLOW);
-    write_pixel(x + 6, y + 12, YELLOW);
+	write_pixel(x + 4, y + 4, YELLOW2);
+    write_pixel(x + 4, y + 5, YELLOW2);
+    write_pixel(x + 4, y + 6, YELLOW2);
+    write_pixel(x + 5, y + 4, YELLOW2);
+    write_pixel(x + 5, y + 5, YELLOW2);
+    write_pixel(x + 5, y + 6, YELLOW2);
+    write_pixel(x + 6, y + 4, YELLOW2);
+    write_pixel(x + 6, y + 5, YELLOW2);
+    write_pixel(x + 6, y + 6, YELLOW2);
+    write_pixel(x + 4, y + 10, YELLOW2);
+    write_pixel(x + 4, y + 11, YELLOW2);
+    write_pixel(x + 4, y + 12, YELLOW2);
+    write_pixel(x + 5, y + 10, YELLOW2);
+    write_pixel(x + 5, y + 11, YELLOW2);
+    write_pixel(x + 5, y + 12, YELLOW2);
+    write_pixel(x + 6, y + 10, YELLOW2);
+    write_pixel(x + 6, y + 11, YELLOW2);
+    write_pixel(x + 6, y + 12, YELLOW2);
 
 }
 
@@ -264,7 +365,7 @@ void print_board(char move){ // self-explanatory
 		xPos++;
 	}
 	char text_level[10] = {'L','E','V','E','L',':',' ', current_level_num + '0'};
-	write_text("LEVEL: ", 210, 18,WHITE,current_level_num);
+	write_text(text_level, 220, 18,WHITE,0);
 	write_text("Up-W",240,50,WHITE,0);
 	write_text("Dn-S",240,75,WHITE,0);
 	write_text("Lf-A",240,100,WHITE,0);
@@ -303,6 +404,6 @@ int main(){
 			}while(input != quit_game || input != main_menu);		
 		}
 	}while(input != quit_game);	
-	erase(1,1,350,280); //clear screen
+	set_graphics(VGA_TEXT80X25X16);
 	clrscr();
 }
