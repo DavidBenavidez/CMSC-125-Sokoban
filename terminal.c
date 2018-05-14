@@ -84,6 +84,9 @@ void checkMove(int newX, int newY, int newX2, int newY2){
 int main(){
     // Main Menu
     while(1){
+        int iasd = 1;
+        char text[10] = {'L','E','V','E','L', (char) iasd + '0'};
+        printf("%s", text);
         printMenu();
         if(move == '1'){
             // Read file   
