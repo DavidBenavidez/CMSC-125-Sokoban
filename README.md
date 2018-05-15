@@ -10,8 +10,6 @@
   <br/>
 </h1>
 
-#Game Guide
-
 ### MENU
 1. The application will start with the Player Menu. 
 2. The Player Menu will prompt the player to choose whether to start the game by pressing ‘1’, view the high scores by pressing ‘2’, or end the game (quit the application) by pressing ‘3’.

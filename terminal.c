@@ -85,8 +85,8 @@ int main(){
     // Main Menu
     while(1){
         int iasd = 1;
-        char text[10] = {'L','E','V','E','L', (char) iasd + '0'};
-        printf("%s", text);
+        char text[10] = {'L','E','V','E','L', 10};
+        printf("%s\n", text);
         printMenu();
         if(move == '1'){
             // Read file   
