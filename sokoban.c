@@ -28,7 +28,7 @@
 
 int i, j, k, l;
 int playerXPos, playerYPos;
-int current_level_num = 1;
+int current_level_num = 0;
 
 char levels[10][10][10]  = {
 {{'e','e','e','e','e','e','e','e','e','x'},{'e','b','b','w','s','w','b','b','e','x'},{'e','w','e','s','s','s','e','w','e','x'},{'e','b','e','s','e','s','e','b','e','x'},{'e','b','e','s','s','s','e','b','e','x'},{'e','b','w','w','s','w','w','b','e','x'},{'e','e','e','e','e','e','e','e','k','x'},{'x','x','x','x','x','x','x','x','x','x'},{'x','x','x','x','x','x','x','x','x','x'},{'x','x','x','x','x','x','x','x','x','x'}},
@@ -800,31 +800,35 @@ void print_board(char move){ // self-explanatory
 }
 
 void go_next_level(){
-	current_level_num++;
-	for(i = 0; i < 10; i++){
-		for(j = 0;j < 10;j++){
-			current_level[i][j] = levels[current_level_num - 1][i][j];
-			if(current_level[i][j] == 'k' || current_level[i][j] == 'K'){
-				playerXPos = i; 
-				playerYPos = j;
+	if(current_level_num < 9){
+		current_level_num++;
+		for(i = 0; i < 10; i++){
+			for(j = 0;j < 10;j++){
+				current_level[i][j] = levels[current_level_num][i][j];
+				if(current_level[i][j] == 'k' || current_level[i][j] == 'K'){
+					playerXPos = i; 
+					playerYPos = j;
+				}
 			}
 		}
+		erase(1,1,350,280); //clear screen
 	}
-	erase(1,1,350,280); //clear screen
 }
 
 void go_prev_level(){
-	current_level_num--;
-	for(i = 0; i < 10; i++){
-		for(j = 0;j < 10;j++){
-			current_level[i][j] = levels[current_level_num - 1][i][j];
-			if(current_level[i][j] == 'k' || current_level[i][j] == 'K'){
-				playerXPos = i; 
-				playerYPos = j;
+	if(current_level_num > 0){
+		current_level_num--;
+		for(i = 0; i < 10; i++){
+			for(j = 0;j < 10;j++){
+				current_level[i][j] = levels[current_level_num][i][j];
+				if(current_level[i][j] == 'k' || current_level[i][j] == 'K'){
+					playerXPos = i; 
+					playerYPos = j;
+				}
 			}
 		}
+		erase(1,1,350,280); //clear screen
 	}
-	erase(1,1,350,280); //clear screen
 }
 
 int main(){
@@ -837,12 +841,13 @@ int main(){
 		header();
 
 		input = (char) getch();
+		
 		if(input == start){
 			erase(1,1,350,280); //clear screen
 			// assign board
 			for(i = 0; i < 10; i++){
 				for(j = 0;j < 10;j++){
-					current_level[i][j] = levels[current_level_num - 1][i][j];
+					current_level[i][j] = levels[current_level_num][i][j];
 					if(current_level[i][j] == 'k' || current_level[i][j] == 'K'){
 						playerXPos = i; 
 						playerYPos = j;
